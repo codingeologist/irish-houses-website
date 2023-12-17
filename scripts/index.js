@@ -8,7 +8,7 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // Get JSON Data
 !async function () {
-    let data = await fetch("https://raw.githubusercontent.com/codingeologist/irish-houses-website/main/data/export_data.json?token=GHSAT0AAAAAACGYLOLUWPTHKIDBU6GGNOTUZL6KJLQ")
+    let data = await fetch("https://raw.githubusercontent.com/codingeologist/irish-houses-website/main/data/export_data.json")
         .then((response) => response.json())
         .then((data) => {
             return data
