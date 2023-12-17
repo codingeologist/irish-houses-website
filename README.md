@@ -5,3 +5,10 @@
 - Step 2: Copy across the export_data.json from [this repo](https://github.com/codingeologist/irish-houses-data)
 - Step 3: ????
 - Step 4: Profit? [URL](https://codingeologist.github.io/irish-houses-website/)
+
+## TODO
+- remove "price on application" null value listings
+- add county borders layer with average pricing
+- divide layer into counties
+- add measurement tools
+- add minimap
