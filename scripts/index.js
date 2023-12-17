@@ -20,7 +20,7 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
         const popup = L.popup()
             .setLatLng([value["latitude"], value["longitude"]])
-            .setContent('<p><b>' + value['title'] + '</b></p><p><b>Price:</b> €' + value['price'] + '</p><p><b>Date:</b>' + value['date'] + '</p>' + '</p><p><b><a href=">' + value['link'] + '" target="_blank" rel="noopener noreferrer">Link</a></b></p>'
+            .setContent('<p><b>' + value['title'] + '</b></p><p><b>Price:</b> €' + value['price'] + '</p><p><b>Date:</b>' + value['date'] + '</p>' + '</p><p><b><a href="' + value['link'] + '" target="_blank" rel="noopener noreferrer">Link</a></b></p>'
             );
 
         const points = L.circle([value["latitude"], value["longitude"]], {
