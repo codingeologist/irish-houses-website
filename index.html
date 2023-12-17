@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--- Basic Webpage needs
+    ================================================== -->
+    <meta charset="utf-8" />
+    <meta name="description" content="Ireland Property Listings Map" />
+    <meta name="keywords" content="Ireland, Property, Real, Estate, Listings, Map" />
+    <!--- Mobile needs
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--- Stylesheet
+    ================================================== -->
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!--- Scripts
+    ================================================== -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!--- Favicon Image
+    ================================================== -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico')}}">
+    <!--- Title
+    ================================================== -->
+    <title>Ireland Property Listings Map</title>
+</head>
+
+<body>
+    <!-- Parent -->
+    <div id="map"></div>
+    <!--- Scripts -->
+    <script src="scripts/index.js"></script>
+</body>
+
+</html>
