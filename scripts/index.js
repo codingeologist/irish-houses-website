@@ -39,9 +39,9 @@ var overlays = {
 
 // Styling Colours
 function colour_picker(value) {
-    if (value < 100000) {
+    if (value <= 100000) {
         return "green"
-    } else if (value > 100000 && value < 250000) {
+    } else if (value > 100000 && value <= 250000) {
         return "orange"
     } else if (value > 250000) {
         return "red"
@@ -62,7 +62,7 @@ function colour_picker(value) {
 
         const popup = L.popup()
             .setLatLng([value["latitude"], value["longitude"]])
-            .setContent('<p><b>' + value['title'] + '</b></p><p><b>Price:</b> €' + value['price'] + '</p><p><b>Date:</b>' + value['date'] + '</p>' + '</p><p><b><a href="' + value['link'] + '" target="_blank" rel="noopener noreferrer">Link</a></b></p>'
+            .setContent('<p><b>' + value['title'] + '</b></p><p><b>Price:</b> €' + value['price'] + '</p><p><b>Date:</b> ' + value['date'] + '</p>' + '</p><p><b><a href="' + value['link'] + '" target="_blank" rel="noopener noreferrer">Link</a></b></p>'
             );
 
         const points = L.circle([value["latitude"], value["longitude"]], {
@@ -105,3 +105,15 @@ var measure = L.control.measure({
     activeColor: "#ABE67E",
     completedColor: "#C8F2BE"
 }).addTo(map);
+
+// Streetview at point
+function onMapClick(e) {
+    latitude = Object.values(e.latlng)[0]
+    longitude = Object.values(e.latlng)[1]
+    const popup = L.popup();
+    popup
+        .setLatLng(e.latlng)
+        .setContent(`📷 Google Streetview at location:<a href="http://maps.google.com/maps?q=&layer=c&cbll=${latitude},${longitude}" target="_blank" rel="noopener noreferrer"><br>Co-ordinates:<br>latitude: ${latitude.toFixed(4)}<br>longitude: ${longitude.toFixed(4)}</a>`)
+        .openOn(map);
+}
+map.on('click', onMapClick);

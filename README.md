@@ -12,6 +12,8 @@
 | 18/12/2023 | remove "price on application" null value listings |
 | 18/12/2023 | fix date time in data: yyyy-mm-dd |
 | 18/12/2023 | add measurement tools |
+| 18/12/2023 | price range colour and date popup formatting |
+| 1812/2023 | Google Streetview links at clicked point |
 
 ## TODO
 - add county borders layer with average pricing
