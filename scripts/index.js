@@ -24,6 +24,7 @@ const map = L.map("map", {
         tiles_1
     ]
 });
+
 ftrgrp.addTo(map);
 
 var baselayers = {
@@ -75,4 +76,32 @@ function colour_picker(value) {
 
 L.control.layers(baselayers, overlays).addTo(map);
 
-L.control.scale().addTo(map);
+L.control.scale({
+    position: "bottomleft"
+}).addTo(map);
+
+// Workaround to stop measure controls moving map: https://github.com/ljagis/leaflet-measure/issues/171#issuecomment-1137483548
+L.Control.Measure.include({
+    // set icon on the capture marker
+    _setCaptureMarkerIcon: function () {
+        // disable autopan
+        this._captureMarker.options.autoPanOnFocus = false;
+
+        // default function
+        this._captureMarker.setIcon(
+            L.divIcon({
+                iconSize: this._map.getSize().multiplyBy(2)
+            })
+        );
+    },
+});
+
+var measure = L.control.measure({
+    position: "topleft",
+    primaryLengthUnit: "meters",
+    primaryAreaUnit: "sqmeters",
+    secondaryLengthUnit: "kilometers",
+    secondaryAreaUnit: "acres",
+    activeColor: "#ABE67E",
+    completedColor: "#C8F2BE"
+}).addTo(map);

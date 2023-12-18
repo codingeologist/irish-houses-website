@@ -6,9 +6,14 @@
 - Step 3: ????
 - Step 4: Profit? [URL](https://codingeologist.github.io/irish-houses-website/)
 
+## CHANGELOG
+| Date | Description |
+| ----------- | ----------- |
+| 18/12/2023 | remove "price on application" null value listings |
+| 18/12/2023 | fix date time in data: yyyy-mm-dd |
+| 18/12/2023 | add measurement tools |
+
 ## TODO
-- remove "price on application" null value listings
 - add county borders layer with average pricing
 - divide layer into counties
-- add measurement tools
 - add minimap
