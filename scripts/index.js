@@ -15,13 +15,23 @@ const tiles_3 = L.tileLayer('http://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}
     attribution: '&copy; <a href="https://www.cartodb.com">CartoDB</a>'
 });
 
+const tiles_4 = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+});
+
+const tiles_5 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19,
+    attribution: '&copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+});
+
 const ftrgrp = L.featureGroup();
 
 const map = L.map("map", {
     center: [53.304621, -7.635498],
     zoom: 8,
     layers: [
-        tiles_1
+        tiles_5
     ]
 });
 
@@ -29,7 +39,9 @@ ftrgrp.addTo(map);
 
 var baselayers = {
     "Open Street Map": tiles_1,
+    "Open Topo Map": tiles_4,
     "ArcGIS World Imagery": tiles_2,
+    "ArcGIS Street Map": tiles_5,
     "CartoDB Dark": tiles_3
 }
 
@@ -113,7 +125,7 @@ function onMapClick(e) {
     const popup = L.popup();
     popup
         .setLatLng(e.latlng)
-        .setContent(`📷 Google Streetview at location:<a href="http://maps.google.com/maps?q=&layer=c&cbll=${latitude},${longitude}" target="_blank" rel="noopener noreferrer"><br>Co-ordinates:<br>latitude: ${latitude.toFixed(4)}<br>longitude: ${longitude.toFixed(4)}</a>`)
+        .setContent(`📷 Google Streetview at:<a href="http://maps.google.com/maps?q=&layer=c&cbll=${latitude},${longitude}" target="_blank" rel="noopener noreferrer"><br>latitude: ${latitude.toFixed(4)}<br>longitude: ${longitude.toFixed(4)}</a>`)
         .openOn(map);
 }
 map.on('click', onMapClick);
